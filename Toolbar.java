@@ -3,36 +3,55 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-class MenuActionListener implements ActionListener {
-    public void actionPerformed(ActionEvent e) {
-        System.exit(0);
-    }
-}
+
 
 public class Toolbar {
 
+    JMenuBar menuBar;
+    JMenu tFile;
+    JMenu tView;
+    JMenu tHelp; 
 
+    JMenuItem mNew;
+    JMenuItem mOpen;
+    JMenuItem mSave;
+    JMenuItem mExit;
+    
+    JMenuItem mLight;
+    JMenuItem mDark;
+    
+    JMenuItem mAbout;
+    JMenuItem mUpdate;
+
+    class MenuActionListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource() == mExit) {
+            System.exit(0);
+            }
+        }
+    }
 
     Toolbar(JFrame window) {
-        JMenuBar menuBar = new JMenuBar();
-        JMenu tFile = new JMenu("File");
-        JMenu tView = new JMenu("View");
-        JMenu tHelp = new JMenu("Help"); 
+        menuBar = new JMenuBar();
+        tView = new JMenu("View");
+        tFile = new JMenu("File");
+        tHelp = new JMenu("Help"); 
     
         //Items in the File Menu.
-        JMenuItem mNew = new JMenuItem("New");
-        JMenuItem mOpen = new JMenuItem("Open");
-        JMenuItem mSave = new JMenuItem("Save");
-        JMenuItem mExit = new JMenuItem("Exit");
+        mNew = new JMenuItem("New");
+        mOpen = new JMenuItem("Open");
+        mOpen.addActionListener(new MenuActionListener());
+        mSave = new JMenuItem("Save");
+        mExit = new JMenuItem("Exit");
         mExit.addActionListener(new MenuActionListener());
         
         //Items in the View Menu
-        JMenuItem mLight = new JMenuItem("Light Theme");
-        JMenuItem mDark = new JMenuItem("Dark Theme");
+        mLight = new JMenuItem("Light Theme");
+        mDark = new JMenuItem("Dark Theme");
         
         //Items in the Help Menu
-        JMenuItem mAbout = new JMenuItem("About");
-        JMenuItem mUpdate = new JMenuItem("Check for Updates");
+        mAbout = new JMenuItem("About");
+        mUpdate = new JMenuItem("Check for Updates");
     
         tFile.add(mNew);
         tFile.add(mOpen);
