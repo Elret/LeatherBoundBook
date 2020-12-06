@@ -39,11 +39,11 @@ public class Toolbar {
         tFile.add(mSave);
         tFile.add(mExit);
 
-        tView.add("mLight");
-        tView.add("mDark");
+        tView.add(mLight);
+        tView.add(mDark);
 
-        tHelp.add("mAbout");
-        tHelp.add("mUpdate");
+        tHelp.add(mAbout);
+        tHelp.add(mUpdate);
 
         menuBar.add(tFile);
         menuBar.add(tView);
